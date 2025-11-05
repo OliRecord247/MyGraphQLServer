@@ -5,6 +5,8 @@
       "name": "server",
       "dependencies": {
         "@apollo/server": "^5.1.0",
+        "@as-integrations/fastify": "^3.1.0",
+        "@fastify/cors": "^11.1.0",
         "@nestjs/apollo": "^13.2.1",
         "@nestjs/common": "^11.0.1",
         "@nestjs/core": "^11.0.1",
@@ -87,6 +89,8 @@
     "@apollo/utils.withrequired": ["@apollo/utils.withrequired@3.0.0", "", {}, "sha512-aaxeavfJ+RHboh7c2ofO5HHtQobGX4AgUujXP4CXpREHp9fQ9jPi6K9T1jrAKe7HIipoP0OJ1gd6JamSkFIpvA=="],
 
     "@apollographql/graphql-playground-html": ["@apollographql/graphql-playground-html@1.6.29", "", { "dependencies": { "xss": "^1.0.8" } }, "sha512-xCcXpoz52rI4ksJSdOCxeOCn2DLocxwHf9dVT/Q90Pte1LX+LY+91SFtJF3KXVHH8kEin+g1KKCQPKBjZJfWNA=="],
+
+    "@as-integrations/fastify": ["@as-integrations/fastify@3.1.0", "", { "dependencies": { "fastify-plugin": "^5.0.1" }, "peerDependencies": { "@apollo/server": "^4.0.0 || ^5.0.0", "fastify": "^5.3.0" } }, "sha512-hfK5adsybNj0qRc+5BiCOy50SqqOhPIctvaaGsjqq7ui8lO/TZkLtz6IvDhWC70vOcMXJuMJCTTEb4hex8RVgw=="],
 
     "@babel/code-frame": ["@babel/code-frame@7.27.1", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.27.1", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg=="],
 
