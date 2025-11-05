@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import { Logger } from '@nestjs/common';
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -7,6 +8,7 @@ import fastifyCors from '@fastify/cors';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
+  throw new Error('Hello');
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
@@ -21,4 +23,8 @@ async function bootstrap() {
   await app.listen(4000, '0.0.0.0');
 }
 
-bootstrap();
+bootstrap().catch((err: unknown) => {
+  const msg = err instanceof Error ? (err.stack ?? err.message) : String(err);
+  Logger.error('Bootstrap failed', msg);
+  process.exit(1);
+});
