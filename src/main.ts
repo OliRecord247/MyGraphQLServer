@@ -8,7 +8,6 @@ import fastifyCors from '@fastify/cors';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  throw new Error('Hello');
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
