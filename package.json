@@ -9,7 +9,9 @@
     "start": "nest start",
     "dev": "nest start --watch",
     "build": "nest build",
-    "prod": "node dist/main.js"
+    "prod": "node dist/main.js",
+    "test": "jest",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@apollo/server": "^5.1.0",
