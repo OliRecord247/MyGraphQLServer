@@ -11,7 +11,9 @@
     "build": "nest build",
     "prod": "node dist/main.js",
     "test": "jest",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
   },
   "dependencies": {
     "@apollo/server": "^5.1.0",
