@@ -5,7 +5,13 @@
 type Todo {
   id: ID!
   text: String!
-  done: Boolean!
+  progress: Progress!
+}
+
+enum Progress {
+  NOT_STARTED
+  IN_PROGRESS
+  DONE
 }
 
 type Query {
@@ -15,10 +21,17 @@ type Query {
 
 type Mutation {
   addTodo(input: AddTodoInput!): Todo!
-  toggleTodo(id: ID!): Todo!
+  updateTodo(input: UpdateTodoInput!): Todo!
   deleteTodo(id: ID!): Boolean!
 }
 
 input AddTodoInput {
   text: String!
+  progress: Progress! = NOT_STARTED
+}
+
+input UpdateTodoInput {
+  id: ID!
+  text: String
+  progress: Progress
 }

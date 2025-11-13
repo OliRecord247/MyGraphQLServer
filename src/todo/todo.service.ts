@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Todo } from './todo.entity';
+import { Todo } from './entities/todo.entity';
+import { Progress } from './entities/progress.enum';
 
 @Injectable()
 export class TodoService {
@@ -13,16 +14,17 @@ export class TodoService {
     return this.todos.find((t) => t.id === id);
   }
 
-  add(text: string): Todo {
-    const t: Todo = { id: String(Date.now()), text, done: false };
+  add(text: string, progress: Progress = Progress.NOT_STARTED): Todo {
+    const t: Todo = { id: String(Date.now()), text, progress };
     this.todos.push(t);
     return t;
   }
 
-  toggle(id: string): Todo {
-    const t = this.findOne(id);
+  update(id: string, patch: Partial<Pick<Todo, 'text' | 'progress'>>): Todo {
+    const t = this.todos.find((x) => x.id === id);
     if (!t) throw new Error('Not found');
-    t.done = !t.done;
+    if (patch.text !== undefined) t.text = patch.text;
+    if (patch.progress !== undefined) t.progress = patch.progress;
     return t;
   }
 
