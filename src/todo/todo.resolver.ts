@@ -9,12 +9,12 @@ export class TodoResolver {
   constructor(private readonly service: TodoService) {}
 
   @Query(() => [Todo])
-  todos(): Todo[] {
+  todos(): Promise<Todo[]> {
     return this.service.findAll();
   }
 
   @Query(() => Todo, { nullable: true })
-  todo(@Args('id', { type: () => ID }) id: string) {
+  todo(@Args('id', { type: () => ID }) id: number) {
     return this.service.findOne(id);
   }
 
@@ -32,7 +32,7 @@ export class TodoResolver {
   }
 
   @Mutation(() => Boolean)
-  deleteTodo(@Args('id', { type: () => ID }) id: string) {
+  deleteTodo(@Args('id', { type: () => ID }) id: number) {
     return this.service.delete(id);
   }
 }
