@@ -13,7 +13,6 @@ export class TodoService {
   ) {}
 
   findAll(): Promise<Todo[]> {
-    console.log(this.todos);
     return this.todos.findAll();
   }
 
